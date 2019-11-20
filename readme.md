@@ -4,6 +4,8 @@ Convenient definitions for a triangle covering the full screen in WebGL, along w
 
 BYORenderer.
 
+[Check out the demo](http://epok.tech/gl-screen-triangle/) - click to switch between the Normalised Device Coordinates (NDC) and texture coordinates setup examples.
+
 ## Usage
 
 ```javascript
