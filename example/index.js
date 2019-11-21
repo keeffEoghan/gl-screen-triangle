@@ -1,34 +1,55 @@
 // Any rendering library, but made with `regl` in mind.
 import getRegl from 'regl';
 
+// The position attributes.
 import positions from '../';
 
-import uvVert from '../index.vert.glsl';
-import stVert from '../texture.vert.glsl';
+// The various shader examples.
+import vert from '../index.vert.glsl';
+import vertNDC from '../uv-ndc.vert.glsl';
+import vertST from '../uv-texture.vert.glsl';
 
 import frag from '../index.frag.glsl';
+import fragUV from '../uv.frag.glsl';
 
 const regl = getRegl();
-const verts = [stVert, uvVert];
+const vec2 = 0.5;
 
 const drawScreenTriangle = regl({
-    vert: ({ tick: t }) => verts[t%verts.length],
-    frag,
+    vert: regl.prop('vert'),
+    frag: regl.prop('frag'),
     attributes: { position: positions },
-    count: positions.length/2
+    uniforms: {
+        // These are only used for the `index.frag.glsl` shader.
+        width: regl.context('viewportWidth'),
+        height: regl.context('viewportHeight')
+    },
+    count: positions.length*vec2
 });
 
-const clear = {
-    color: [0, 0, 0, 1],
-    depth: 1,
-    stencil: 0
-};
+const clear = { color: [0, 0, 0, 1], depth: 1, stencil: 0 };
 
-function frame() {
+const shaders = [
+    { name: 'uv-ndc', vert: vertNDC, frag: fragUV },
+    { name: 'uv-texture', vert: vertST, frag: fragUV },
+    { name: 'index', vert, frag }
+];
+
+let shader;
+
+function frame({ tick: t }) {
     regl.poll();
-    regl.clear(clear)
-    drawScreenTriangle();
+    regl.clear(clear);
+
+    // Switch shader every frame.
+    const s = t%shaders.length;
+
+    shader = shaders[s];
+    console.log(`Shader ${s}: '${shader.name}'`, shader);
+    drawScreenTriangle(shader);
 }
 
-document.addEventListener('click', frame);
-frame();
+const draw = () => regl.draw(frame);
+
+document.addEventListener('click', draw);
+draw();

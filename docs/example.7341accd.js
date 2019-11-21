@@ -5,12 +5,16 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"undefined"!=typeo
 },{}],"S3PC":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=exports.positions=void 0;var e=[-1,-1,-1,4,4,-1];exports.positions=e;var t=e;exports.default=t;
 },{}],"HvdV":[function(require,module,exports) {
+module.exports="precision highp float;\n#define GLSLIFY 1\n\nattribute vec2 position;\n\nvoid main() {\n    gl_Position = vec4(position, 0, 1);\n}\n";
+},{}],"c8Ia":[function(require,module,exports) {
 module.exports="precision highp float;\n#define GLSLIFY 1\n\nattribute vec2 position;\n\nvarying vec2 uv;\n\n// Flips the y-axis to point downwards.\nconst vec2 flip = vec2(1, -1);\n\nvoid main() {\n    uv = position*flip;\n    gl_Position = vec4(position, 0, 1);\n}\n";
-},{}],"d4u9":[function(require,module,exports) {
-module.exports="precision highp float;\n#define GLSLIFY 1\n\nattribute vec2 position;\n\nvarying vec2 uv;\n\n// Translation for NDC-UV to texture ST coordinates.\nconst vec2 offset = vec2(0.5);\n\nvoid main() {\n    uv = (position*0.5)+offset;\n    gl_Position = vec4(position, 0, 1);\n}\n";
+},{}],"Ja0e":[function(require,module,exports) {
+module.exports="precision highp float;\n#define GLSLIFY 1\n\nattribute vec2 position;\n\nvarying vec2 uv;\n\n// Translation for UV NDC to texture coordinates.\nconst vec2 offset = vec2(0.5);\n\nvoid main() {\n    uv = (position*0.5)+offset;\n    gl_Position = vec4(position, 0, 1);\n}\n";
 },{}],"JCCd":[function(require,module,exports) {
+module.exports="precision highp float;\n#define GLSLIFY 1\n\nuniform float width;\nuniform float height;\n\nvoid main() {\n    gl_FragColor = vec4(0, gl_FragCoord.x/width, gl_FragCoord.y/height, 1);\n}\n";
+},{}],"f7H5":[function(require,module,exports) {
 module.exports="precision highp float;\n#define GLSLIFY 1\n\nvarying vec2 uv;\n\nvoid main() {\n    gl_FragColor = vec4(uv, 0, 1);\n}\n";
 },{}],"Focm":[function(require,module,exports) {
-"use strict";var e=i(require("regl")),t=i(require("../")),r=i(require("../index.vert.glsl")),l=i(require("../texture.vert.glsl")),u=i(require("../index.frag.glsl"));function i(e){return e&&e.__esModule?e:{default:e}}var n=(0,e.default)(),a=[l.default,r.default],d=n({vert:function(e){var t=e.tick;return a[t%a.length]},frag:u.default,attributes:{position:t.default},count:t.default.length/2}),c={color:[0,0,0,1],depth:1,stencil:0};function f(){n.poll(),n.clear(c),d()}document.addEventListener("click",f),f();
-},{"regl":"Jx9Q","../":"S3PC","../index.vert.glsl":"HvdV","../texture.vert.glsl":"d4u9","../index.frag.glsl":"JCCd"}]},{},["Focm"], null)
-//# sourceMappingURL=example.f639a071.js.map
+"use strict";var e=i(require("regl")),t=i(require("../")),r=i(require("../index.vert.glsl")),u=i(require("../uv-ndc.vert.glsl")),a=i(require("../uv-texture.vert.glsl")),l=i(require("../index.frag.glsl")),n=i(require("../uv.frag.glsl"));function i(e){return e&&e.__esModule?e:{default:e}}var d,o=(0,e.default)(),c=.5,f=o({vert:o.prop("vert"),frag:o.prop("frag"),attributes:{position:t.default},uniforms:{width:o.context("viewportWidth"),height:o.context("viewportHeight")},count:t.default.length*c}),v={color:[0,0,0,1],depth:1,stencil:0},g=[{name:"uv-ndc",vert:u.default,frag:n.default},{name:"uv-texture",vert:a.default,frag:n.default},{name:"index",vert:r.default,frag:l.default}];function s(e){var t=e.tick;o.poll(),o.clear(v);var r=t%g.length;d=g[r],console.log("Shader ".concat(r,": '").concat(d.name,"'"),d),f(d)}var h=function(){return o.draw(s)};document.addEventListener("click",h),h();
+},{"regl":"Jx9Q","../":"S3PC","../index.vert.glsl":"HvdV","../uv-ndc.vert.glsl":"c8Ia","../uv-texture.vert.glsl":"Ja0e","../index.frag.glsl":"JCCd","../uv.frag.glsl":"f7H5"}]},{},["Focm"], null)
+//# sourceMappingURL=example.7341accd.js.map

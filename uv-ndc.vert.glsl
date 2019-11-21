@@ -4,10 +4,10 @@ attribute vec2 position;
 
 varying vec2 uv;
 
-// Translation for NDC-UV to texture ST coordinates.
-const vec2 offset = vec2(0.5);
+// Flips the y-axis to point downwards.
+const vec2 flip = vec2(1, -1);
 
 void main() {
-    uv = (position*0.5)+offset;
+    uv = position*flip;
     gl_Position = vec4(position, 0, 1);
 }
