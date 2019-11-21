@@ -1,9 +1,12 @@
 {
-  "name": "gl-screen-triangle",
+  "name": "@epok.tech/gl-screen-triangle",
   "version": "1.0.0",
   "description": "Convenient definitions for a triangle covering the full screen in WebGL - BYORenderer",
   "browser": "index.js",
-  "repository": "https://github.com/keeffEoghan/gl-screen-triangle",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keeffEoghan/gl-screen-triangle.git"
+  },
   "author": "Eoghan O'Keeffe <epok.tech@gmail.com>",
   "license": "MIT",
   "engines": {
@@ -19,5 +22,22 @@
     "glslify-deps": "^1.3.1",
     "parcel": "^1.12.4",
     "regl": "^1.3.13"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/keeffEoghan/gl-screen-triangle/issues"
+  },
+  "homepage": "https://github.com/keeffEoghan/gl-screen-triangle#readme",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "example"
+  },
+  "dependencies": {},
+  "keywords": [
+    "webgl",
+    "regl",
+    "gpgpu",
+    "postprocessing",
+    "glsl"
+  ]
 }

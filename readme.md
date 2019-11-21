@@ -6,18 +6,29 @@ BYORenderer.
 
 [Check out the demo](http://epok.tech/gl-screen-triangle/) - click to switch between the Normalised Device Coordinates (NDC) and texture coordinates setup examples.
 
+## Installation
+
+Install from [npm](https://www.npmjs.com/package/@epok.tech/gl-screen-triangle) using:
+```bash
+npm install @epok.tech/gl-screen-triangle
+```
+or:
+```bash
+yarn add @epok.tech/gl-screen-triangle
+```
+
 ## Usage
 
 ```javascript
 // Any rendering library, but made with `regl` in mind.
 import getRegl from 'regl';
 
-import positions from 'gl-screen-triangle';
+import positions from '@epok.tech/gl-screen-triangle';
 
-import uvVert from 'gl-screen-triangle/index.vert.glsl';
-import stVert from 'gl-screen-triangle/texture.vert.glsl';
+import uvVert from '@epok.tech/gl-screen-triangle/index.vert.glsl';
+import stVert from '@epok.tech/gl-screen-triangle/texture.vert.glsl';
 
-import frag from 'gl-screen-triangle/index.frag.glsl';
+import frag from '@epok.tech/gl-screen-triangle/index.frag.glsl';
 
 const regl = getRegl();
 const verts = [stVert, uvVert];
