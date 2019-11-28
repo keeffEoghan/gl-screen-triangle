@@ -1,8 +1,8 @@
-# gl-screen-triangle
+# `gl-screen-triangle`
 
-Convenient definitions for a triangle covering the full screen in WebGL, along with default GLSL shaders, but without dependencies or drawing (for easier compatibility with any renderer which may rely on tracking the WebGL state, e.g: [`regl`](https://github.com/regl-project/regl/)).
+Convenient definitions for a triangle covering the full screen in WebGL, along with default GLSL shaders - BYORenderer.
 
-BYORenderer.
+No drawing dependencies - for easier compatibility with any renderer which may rely on tracking the WebGL state (e.g: [`regl`](https://github.com/regl-project/regl/)).
 
 [Check out the demo](http://epok.tech/gl-screen-triangle/) - click to switch between the Normalised Device Coordinates (NDC) and texture coordinates setup examples.
 
