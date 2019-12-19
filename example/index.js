@@ -2,7 +2,7 @@
 import getRegl from 'regl';
 
 // The position attributes.
-import positions from '../';
+import { positions, count } from '../';
 
 // The various shader examples.
 import vert from '../index.vert.glsl';
@@ -13,7 +13,6 @@ import frag from '../index.frag.glsl';
 import fragUV from '../uv.frag.glsl';
 
 const regl = getRegl();
-const vec2 = 0.5;
 
 const drawScreenTriangle = regl({
     vert: regl.prop('vert'),
@@ -24,7 +23,7 @@ const drawScreenTriangle = regl({
         width: regl.context('viewportWidth'),
         height: regl.context('viewportHeight')
     },
-    count: positions.length*vec2
+    count
 });
 
 const clear = { color: [0, 0, 0, 1], depth: 1, stencil: 0 };

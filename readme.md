@@ -24,7 +24,7 @@ yarn add @epok.tech/gl-screen-triangle
 import getRegl from 'regl';
 
 // The position attributes.
-import positions from '@pok.tech/gl-screen-triangle';
+import { positions, count } from '@pok.tech/gl-screen-triangle';
 
 // The various shader examples.
 import vert from '@pok.tech/gl-screen-triangle/index.vert.glsl';
@@ -35,7 +35,6 @@ import frag from '@pok.tech/gl-screen-triangle/index.frag.glsl';
 import fragUV from '@pok.tech/gl-screen-triangle/uv.frag.glsl';
 
 const regl = getRegl();
-const vec2 = 0.5;
 
 const drawScreenTriangle = regl({
     vert: regl.prop('vert'),
@@ -46,7 +45,7 @@ const drawScreenTriangle = regl({
         width: regl.context('viewportWidth'),
         height: regl.context('viewportHeight')
     },
-    count: positions.length*vec2
+    count
 });
 
 const clear = { color: [0, 0, 0, 1], depth: 1, stencil: 0 };
