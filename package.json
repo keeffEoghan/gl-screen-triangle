@@ -1,6 +1,6 @@
 {
   "name": "@epok.tech/gl-screen-triangle",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Convenient definitions for a triangle covering the full screen in WebGL - BYORenderer",
   "repository": {
     "type": "git",
