@@ -24,15 +24,15 @@ yarn add @epok.tech/gl-screen-triangle
 import getRegl from 'regl';
 
 // The position attributes.
-import { positions, count } from '@pok.tech/gl-screen-triangle';
+import { positions, count } from '@epok.tech/gl-screen-triangle';
 
 // The various shader examples.
-import vert from '@pok.tech/gl-screen-triangle/index.vert.glsl';
-import vertNDC from '@pok.tech/gl-screen-triangle/uv-ndc.vert.glsl';
-import vertST from '@pok.tech/gl-screen-triangle/uv-texture.vert.glsl';
+import vert from '@epok.tech/gl-screen-triangle/index.vert.glsl';
+import vertNDC from '@epok.tech/gl-screen-triangle/uv-ndc.vert.glsl';
+import vertST from '@epok.tech/gl-screen-triangle/uv-texture.vert.glsl';
 
-import frag from '@pok.tech/gl-screen-triangle/index.frag.glsl';
-import fragUV from '@pok.tech/gl-screen-triangle/uv.frag.glsl';
+import frag from '@epok.tech/gl-screen-triangle/index.frag.glsl';
+import fragUV from '@epok.tech/gl-screen-triangle/uv.frag.glsl';
 
 const regl = getRegl();
 
